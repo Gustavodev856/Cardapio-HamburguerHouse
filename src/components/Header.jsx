@@ -10,7 +10,7 @@ export default function Header() {
       {/* Logo */}
       <div>
         <h1 className="w-28 transition-transform duration-300 hover:-translate-y-1">
-          <img src="src/assets/Logoofc.png" alt="Logo" className="w-full h-auto object-contain"/>
+          <img src="/Logoofc.png" alt="Logo" className="w-full h-auto object-contain"/>
         </h1>
       </div>
 
