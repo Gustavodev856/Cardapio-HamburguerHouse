@@ -6,7 +6,7 @@ import Bebidas from './pages/Bebidas'
 import Carrinho from './pages/Carrinho'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { CartProvider } from './contexts/CartContext'  // <--- aqui é o caminho certo
-
+import LandingPage from './pages/LandingPage'
 
 function App() {
   return (
@@ -14,10 +14,11 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Hamburguer />} />
-          <Route path="/beirute" element={<Beirute />} />
-          <Route path="/bebidas" element={<Bebidas />} />
-          <Route path="/carrinho" element={<Carrinho />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/Hamburguer" element={<Hamburguer />} />
+          <Route path="/Beirute" element={<Beirute />} />
+          <Route path="/Bebidas" element={<Bebidas />} />
+          <Route path="/Carrinho" element={<Carrinho />} />
         </Routes>
       </Router>
     </CartProvider>
