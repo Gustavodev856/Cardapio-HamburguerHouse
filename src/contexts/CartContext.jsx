@@ -32,12 +32,28 @@ export function CartProvider({ children }) {
     );
   };
 
-  const getTotal = () => {
-    return cartItems.reduce((acc, item) => {
-      const precoNumber = parseFloat(item.preco.replace("R$ ", "").replace(",", "."));
-      return acc + precoNumber * item.quantidade;
-    }, 0).toFixed(2);
-  };
+const getTotal = () => {
+  return cartItems
+    .reduce((total, item) => {
+      // Pega preço seguro: string ou número
+      let precoNumerico = 0;
+
+      if (item.preco) {
+        precoNumerico = Number(
+          item.preco
+            .toString()
+            .replace("R$", "")
+            .replace(",", ".")
+            .trim()
+        );
+
+        if (isNaN(precoNumerico)) precoNumerico = 0;
+      }
+
+      return total + precoNumerico * (item.quantidade || 0);
+    }, 0)
+    .toFixed(2);
+};
 
   return (
     <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateQuantity, getTotal }}>

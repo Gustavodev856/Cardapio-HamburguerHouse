@@ -1,4 +1,5 @@
-import CardItem from "../components/CardItem"
+import Cardapio from "../pages/Cardapio";
+
 
 
 export default function Bebidas() {
@@ -15,14 +16,5 @@ export default function Bebidas() {
   {nome: 'Drink da Casa', description: 'Mix de frutas tropicais com vodka ou rum.', preco: 'R$ 14,90', imagem:'/drink.png'}
     ]
 
-    return (
-     <div className="p-6 bg-gray-50 min-h-screen">
-      <h2 className="text-3xl font-bold mb-8 text-gray-800 text-center">Cardápio de Bebidas</h2>
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-        {bebidas.map((item, index) => (
-         <CardItem key={index} item={item} />
-        ))}
-      </div>
-    </div>
-)
+   return <Cardapio items={bebidas} />;
 }

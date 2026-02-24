@@ -1,4 +1,6 @@
-import CardItem from "../components/CardItem"
+
+import Cardapio from "../pages/Cardapio";
+
 
 export default function Beirute() {
     const beirutes = [
@@ -13,15 +15,6 @@ export default function Beirute() {
   {nome: 'Beirute de Filé de Peixe', description: 'Filé de peixe grelhado, queijo, alface e molho tártaro.', preco: 'R$ 24,90', imagem:'/beirute.png'}
 ]
 
-return (
-     <div className="p-6 bg-gray-50 min-h-screen">
-      <h2 className="text-3xl font-bold mb-8 text-gray-800 text-center">Cardápio de Beirutes</h2>
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-        {beirutes.map((item, index) => (
-         <CardItem key={index} item={item} />
-        ))}
-      </div>
-    </div>
-)
+return <Cardapio items={beirutes} />;
 
 }
