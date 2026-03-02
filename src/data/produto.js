@@ -3,7 +3,7 @@ export const hamburgueres = [
     "nome": "Cheeseburger",
     "description": "Carne suculenta, queijo, bacon crocante e vegetais frescos.",
     "preco": "R$ 20,00",
-    "imagem": "/hamburguer.png",
+    "imagem": "/Hamburguer.png",
     "opcoes": [
       { "nome": "alface", "preco": 0.5 },
       { "nome": "tomate", "preco": 0.5 },
@@ -15,7 +15,7 @@ export const hamburgueres = [
     "nome": "Mushroom Swiss Burguer",
     "description": "Hambúrguer com cogumelos salteados e queijo suíço.",
     "preco": "R$ 27,50",
-    "imagem": "/hamburguer.png",
+    "imagem": "/Hamburguer.png",
     "opcoes": [
       { "nome": "cogumelos extras", "preco": 2 },
       { "nome": "queijo suíço extra", "preco": 1.5 },
@@ -26,7 +26,7 @@ export const hamburgueres = [
     "nome": "Barbecue Burguer",
     "description": "Carne com molho barbecue, cebola crocante e queijo.",
     "preco": "R$ 20,99",
-    "imagem": "/hamburguer.png",
+    "imagem": "/Hamburguer.png",
     "opcoes": [
       { "nome": "molho barbecue extra", "preco": 1 },
       { "nome": "bacon", "preco": 2 },
@@ -37,7 +37,7 @@ export const hamburgueres = [
     "nome": "Blue CheeseBurguer",
     "description": "Hambúrguer com queijo azul, cebola roxa e alface.",
     "preco": "R$ 19,29",
-    "imagem": "/hamburguer.png",
+    "imagem": "/Hamburguer.png",
     "opcoes": [
       { "nome": "queijo azul extra", "preco": 2 },
       { "nome": "cebola roxa extra", "preco": 0.5 },
@@ -48,7 +48,7 @@ export const hamburgueres = [
     "nome": "Double CheeseBurguer",
     "description": "Duplo hambúrguer com duas camadas de carne e queijo.",
     "preco": "R$ 16,80",
-    "imagem": "/hamburguer.png",
+    "imagem": "/Hamburguer.png",
     "opcoes": [
       { "nome": "carne extra", "preco": 3 },
       { "nome": "queijo extra", "preco": 1.5 },
@@ -59,7 +59,7 @@ export const hamburgueres = [
     "nome": "Spicy Burguer",
     "description": "Carne com jalapeños, queijo pepper jack e toque picante.",
     "preco": "R$ 35,90",
-    "imagem": "/hamburguer.png",
+    "imagem": "/Hamburguer.png",
     "opcoes": [
       { "nome": "jalapeños extras", "preco": 1 },
       { "nome": "queijo pepper jack extra", "preco": 1.5 },
@@ -70,7 +70,7 @@ export const hamburgueres = [
     "nome": "Veggie Burguer",
     "description": "Hambúrguer vegetariano com legumes, tomate e cebola roxa.",
     "preco": "R$ 10,00",
-    "imagem": "/hamburguer.png",
+    "imagem": "/Hamburguer.png",
     "opcoes": [
       { "nome": "tomate extra", "preco": 0.5 },
       { "nome": "cebola roxa extra", "preco": 0.5 },
@@ -81,7 +81,7 @@ export const hamburgueres = [
     "nome": "Chicken Burguer",
     "description": "Filé de frango empanado, alface e tomate.",
     "preco": "R$ 15,99",
-    "imagem": "/hamburguer.png",
+    "imagem": "/Hamburguer.png",
     "opcoes": [
       { "nome": "alface extra", "preco": 0.5 },
       { "nome": "tomate extra", "preco": 0.5 },
@@ -92,15 +92,88 @@ export const hamburgueres = [
     "nome": "Fish Burguer",
     "description": "Filé de peixe crocante com molho tártaro e alface.",
     "preco": "R$ 14,95",
-    "imagem": "/hamburguer.png",
+    "imagem": "/Hamburguer.png",
     "opcoes": [
       { "nome": "molho tártaro extra", "preco": 1 },
       { "nome": "alface extra", "preco": 0.5 },
       { "nome": "queijo extra", "preco": 1.5 }
     ]
+  },
+  {
+    "nome": "Combo Família",
+    "description": "2 hambúrgueres, batata frita grande e 2 bebidas à sua escolha.",
+    "preco": "R$ 55,00",
+    "imagem": "/combofamilia.png",
+    "opcoes": [
+      { "nome": "alface extra", "preco": 1 },
+      { "nome": "tomate extra", "preco": 1 },
+      { "nome": "bacon extra", "preco": 3 },
+      { "nome": "queijo extra", "preco": 2 }
+    ]
+  },
+  {
+    "nome": "Combo Individual",
+    "description": "1 hambúrguer, batata frita média e 1 bebida à escolha.",
+    "preco": "R$ 25,00",
+    "imagem": "/comboindividual.png",
+    "opcoes": [
+      { "nome": "alface extra", "preco": 0.5 },
+      { "nome": "tomate extra", "preco": 0.5 },
+      { "nome": "bacon extra", "preco": 2 },
+      { "nome": "queijo extra", "preco": 1.5 }
+    ]
+  },
+  {
+    "nome": "Combo Duplo Burger",
+    "description": "2 cheeseburgers, batata frita média e 2 refrigerantes.",
+    "preco": "R$ 48,00",
+    "imagem": "/comboduplo.png",
+    "opcoes": [
+      { "nome": "alface", "preco": 0.5 },
+      { "nome": "tomate", "preco": 0.5 },
+      { "nome": "bacon", "preco": 2 },
+      { "nome": "queijo extra", "preco": 1.5 }
+    ]
+  },
+  {
+    "nome": "Combo Beirute Especial",
+    "description": "1 beirute grande, batata frita e 1 bebida à escolha.",
+    "preco": "R$ 28,00",
+    "imagem": "/combobeirute.png",
+    "opcoes": [
+      { "nome": "alface", "preco": 0.5 },
+      { "nome": "tomate", "preco": 0.5 },
+      { "nome": "queijo extra", "preco": 1.5 },
+      { "nome": "maionese especial", "preco": 1 }
+    ]
+  },
+  {
+    "nome": "Combo Bebida Gelada",
+    "description": "1 hambúrguer, batata frita pequena e 1 milkshake ou refrigerante.",
+    "preco": "R$ 22,00",
+    "imagem": "/combobebida.png",
+    "opcoes": [
+      { "nome": "alface", "preco": 0.5 },
+      { "nome": "tomate", "preco": 0.5 },
+      { "nome": "bacon", "preco": 2 },
+      { "nome": "queijo extra", "preco": 1.5 }
+    ]
+  },
+  {
+    "nome": "Combo Festa",
+    "description": "3 hambúrgueres, 2 beirutes, 2 batatas grandes e 4 bebidas.",
+    "preco": "R$ 120,00",
+    "imagem": "/combofesta.png",
+    "opcoes": [
+      { "nome": "alface extra", "preco": 1 },
+      { "nome": "tomate extra", "preco": 1 },
+      { "nome": "bacon extra", "preco": 3 },
+      { "nome": "queijo extra", "preco": 2 }
+    ]
   }
-
 ]
+
+
 
 export const beirutes = [
   {

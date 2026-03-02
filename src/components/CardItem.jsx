@@ -57,81 +57,136 @@ export default function CardItem({ item }) {
   };
 
   return (
-    <>
-      {/* Card principal */}
-      <div
-        className="bg-white border p-4 rounded-xl shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2 hover:scale-105 cursor-pointer"
-        onClick={() => setIsOpen(true)}
-      >
+     <>
+    {/* Card Premium */}
+    <div
+      className="group bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 
+                 text-white border border-gray-800 
+                 rounded-2xl overflow-hidden 
+                 shadow-xl hover:shadow-indigo-500/20
+                 transition-all duration-500 
+                 hover:-translate-y-4 cursor-pointer"
+      onClick={() => setIsOpen(true)}
+    >
+      {/* Badge pode ser retirado a qualquer momento */}
+      <span className="absolute mt-4 ml-4 bg-indigo-600 text-xs px-3 py-1 rounded-full shadow-md z-10">
+        Premium
+      </span>
+
+      {/* Imagem */}
+      <div className="overflow-hidden">
         <img
           src={item.imagem}
           alt={item.nome}
-          className="w-full h-36 sm:h-40 md:h-44 object-contain rounded-xl mb-4"
+          className="w-full h-52 object-cover 
+                     transition-transform duration-700 
+                     group-hover:scale-110"
         />
-        <h3 className="font-semibold text-lg text-gray-800 mb-1">{item.nome}</h3>
-        <p className="text-gray-600 text-sm mb-4">{item.description}</p>
-        <span className="font-bold text-indigo-600 text-lg">{item.preco}</span>
       </div>
 
-      {/* Modal */}
-      {isOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl p-6 max-w-md w-full relative">
-            <button
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
-              onClick={() => setIsOpen(false)}
-            >
-              ✕
-            </button>
+      {/* Conteúdo */}
+      <div className="p-6">
+        <h3 className="font-bold text-xl mb-2">
+          {item.nome}
+        </h3>
 
-            <h2 className="text-2xl font-bold mb-4">{item.nome}</h2>
-            <p className="text-gray-600 mb-4">{item.description}</p>
+        <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+          {item.description}
+        </p>
 
-            {/* Acompanhamentos */}
-            {item.opcoes && item.opcoes.length > 0 && (
-              <div className="mb-4">
-                <h3 className="font-semibold mb-2">Escolha seus acompanhamentos:</h3>
-                {item.opcoes.map(opt => (
-                  <label key={opt.nome} className="flex items-center space-x-2 mb-1">
+        <div className="flex justify-between items-center">
+          <span className="font-bold text-2xl text-indigo-400">
+            {item.preco}
+          </span>
+
+          {/* <span className="text-xs text-gray-500 group-hover:text-indigo-400 transition">
+            Ver detalhes →
+          </span> */}
+        </div>
+      </div>
+    </div>
+
+    {/* Modal Premium Melhorado */}
+    {isOpen && (
+      <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 p-4">
+
+        <div className="bg-linear-to-br from-gray-900 to-gray-800 
+                        text-white border border-gray-700 
+                        rounded-2xl p-8 w-full max-w-lg 
+                        relative shadow-2xl 
+                        animate-[fadeIn_.3s_ease-in-out]">
+
+          {/* Botão fechar */}
+          <button
+            className="absolute top-4 right-5 text-gray-400 hover:text-white text-xl"
+            onClick={() => setIsOpen(false)}
+          >
+            ✕
+          </button>
+
+          <h2 className="text-3xl font-bold mb-4 text-indigo-400">
+            {item.nome}
+          </h2>
+
+          <p className="text-gray-300 mb-6">
+            {item.description}
+          </p>
+
+          {/* Acompanhamentos */}
+          {item.opcoes?.length > 0 && (
+            <div className="mb-6">
+              <h3 className="font-semibold mb-4 text-lg border-b border-gray-700 pb-2">
+                Escolha seus acompanhamentos
+              </h3>
+
+              {item.opcoes.map(opt => (
+                <label
+                  key={opt.nome}
+                  className="flex items-center justify-between 
+                             bg-gray-800/70 backdrop-blur 
+                             p-3 rounded-lg mb-3 
+                             hover:bg-gray-700 transition"
+                >
+                  <div className="flex items-center gap-3">
                     <input
                       type="checkbox"
                       checked={!!selectedOptions[opt.nome]}
                       onChange={() => handleOptionChange(opt.nome, opt.preco)}
+                      className="accent-indigo-500 w-4 h-4"
                     />
                     <span className="capitalize">
-                      {opt.nome} (+{numeroParaPreco(opt.preco)})
+                      {opt.nome}
                     </span>
-                  </label>
-                ))}
-              </div>
-            )}
+                  </div>
 
-            {/* Observação do cliente */}
-            {/* <div className="mb-4">
-              <label className="font-semibold mb-1 block">Observação:</label>
-              <textarea
-                value={customNote}
-                onChange={(e) => setCustomNote(e.target.value)}
-                placeholder="Ex: sem cebola, bem passado..."
-                className="w-full border border-gray-300 rounded-lg p-2 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                rows={3}
-              />
-            </div> */}
-
-            <div className="flex justify-between items-center">
-              <span className="font-bold text-indigo-600 text-lg">
-                {numeroParaPreco(totalPrice)}
-              </span>
-              <button
-                className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-lg"
-                onClick={handleAddToCart}
-              >
-                Adicionar ao Carrinho
-              </button>
+                  <span className="text-indigo-400 font-semibold">
+                    +{numeroParaPreco(opt.preco)}
+                  </span>
+                </label>
+              ))}
             </div>
+          )}
+
+          {/* Total + Botão */}
+          <div className="flex justify-between items-center mt-8 pt-4 border-t border-gray-700">
+            <span className="font-bold text-2xl text-indigo-400">
+              {numeroParaPreco(totalPrice)}
+            </span>
+
+            <button
+              className="bg-indigo-600 hover:bg-indigo-500 
+                         transition-all duration-300 
+                         text-white font-semibold 
+                         px-6 py-3 rounded-xl 
+                         shadow-lg hover:shadow-indigo-500/40"
+              onClick={handleAddToCart}
+            >
+              Adicionar ao Carrinho
+            </button>
           </div>
         </div>
-      )}
-    </>
+      </div>
+    )}
+  </>
   );
 }
