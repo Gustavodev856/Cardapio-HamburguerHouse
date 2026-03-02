@@ -1,18 +1,26 @@
-// src/components/Cardapio.jsx
 import { useState } from "react";
-import CardItem from "../components/CardItem" 
+import CardItem from "./CardItem"; // mesmo components
+import { todosProdutos } from "../data/produto";
 
 export default function Cardapio({ items }) {
   const [search, setSearch] = useState("");
 
-  // Filtra os itens enquanto o usuário digita
-  const filteredItems = items.filter(item =>
-    item.nome.toLowerCase().includes(search.toLowerCase())
-  );
+  // Se o usuário digitar algo, busca em todosProdutos
+  // Caso contrário, mostra apenas os itens da página atual
+  // Função auxiliar para remover acentos e deixar em minúsculo
+const normalizeText = (text) =>
+  text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+const filteredItems = search
+  ? todosProdutos.filter(item =>
+      normalizeText(item.nome).includes(normalizeText(search)) ||
+      normalizeText(item.description).includes(normalizeText(search))
+    )
+  : items;
 
   return (
     <div className="px-4 py-6 max-w-5xl mx-auto">
-      {/* Barra de pesquisa */}
+      {/* Barra de busca */}
       <input
         type="text"
         placeholder="Buscar item..."
@@ -21,7 +29,7 @@ export default function Cardapio({ items }) {
         className="w-full p-3 rounded-xl border border-gray-300 mb-6 focus:outline-none focus:ring-2 focus:ring-indigo-500"
       />
 
-      {/* Lista de itens ou mensagem de nenhum item */}
+      {/* Lista de itens ou mensagem caso não haja resultados */}
       {filteredItems.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredItems.map((item, index) => (
